@@ -289,3 +289,28 @@ cmd({
 
     }
 )
+//---------------------------------------------------------------------------
+cmd({
+            pattern: "alive",
+            category: "general",
+            filename: __filename,
+            desc: "is bot alive??"
+        },
+        async(Void, citel, text, isAdmins) => {
+            let alivemessage = Config.ALIVE_MESSAGE || `**`
+            const alivtxt = `
+..........
+            let aliveMessage = {
+                image: {
+                    url: await botpic(),
+                },
+                caption: alivtxt,
+                footer: tlang().footer,
+                headerType: 4,
+            };
+             return Void.sendMessage(citel.chat, aliveMessage, {
+                quoted: citel,
+            });
+
+        }
+    )
